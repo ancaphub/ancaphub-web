@@ -42,7 +42,7 @@ import {
   likePostRequest,
   deletePostRequest,
   sharePostRequest,
-} from '../../../redux/actions/posts';
+} from '../../../redux/ducks/posts/actions';
 
 interface PostCardProps {
   data: {

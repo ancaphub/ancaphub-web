@@ -1,6 +1,6 @@
 import React, { useEffect, memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUserPostsRequest } from '../../../redux/actions/posts';
+import { getUserPostsRequest } from '../../../redux/ducks/posts/actions';
 import PostForm from '../../../components/posts/PostForm';
 import PostCard from '../../../components/posts/PostCard';
 import { CircularLoader } from 'snake-ui';

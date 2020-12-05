@@ -1,18 +1,19 @@
-import { Types } from '../actions/posts';
-import arrayToObject from '../../utils/arrayToObject';
+import { PostsTypes, PostsState } from './types';
+import arrayToObject from '../../../utils/arrayToObject';
+import { Reducer } from 'redux';
 
-const INITIAL_STATE = {
+const INITIAL_STATE: PostsState = {
   items: [],
-  errorMessage: '',
+  error: '',
   postLikesLoading: true,
   loading: true,
 };
 
-export default (state = INITIAL_STATE, action) => {
+const reducer: Reducer<PostsState> = (state = INITIAL_STATE, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case Types.CREATE_POST_SUCCESS:
+    case PostsTypes.CREATE_POST_SUCCESS:
       return {
         ...state,
         items: {
@@ -20,17 +21,17 @@ export default (state = INITIAL_STATE, action) => {
           ...state.items,
         },
       };
-    case Types.GET_POSTS_REQUEST:
-    case Types.GET_USER_POSTS_REQUEST:
+    case PostsTypes.GET_POSTS_REQUEST:
+    case PostsTypes.GET_USER_POSTS_REQUEST:
       return { ...state, loading: true };
-    case Types.GET_POSTS_SUCCESS:
-    case Types.GET_USER_POSTS_SUCCESS:
+    case PostsTypes.GET_POSTS_SUCCESS:
+    case PostsTypes.GET_USER_POSTS_SUCCESS:
       return {
         ...state,
         items: arrayToObject(payload.items, 'id'),
         loading: false,
       };
-    case Types.GET_MORE_POSTS_SUCCESS:
+    case PostsTypes.GET_MORE_POSTS_SUCCESS:
       return {
         ...state,
         items: {
@@ -39,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
         },
         loading: false,
       };
-    case Types.LIKE_POST_REQUEST:
+    case PostsTypes.LIKE_POST_REQUEST:
       return {
         ...state,
         items: {
@@ -50,7 +51,7 @@ export default (state = INITIAL_STATE, action) => {
           },
         },
       };
-    case Types.DELETE_POST_SUCCESS: {
+    case PostsTypes.DELETE_POST_SUCCESS: {
       const newObj = { ...state.items };
       delete newObj[payload];
 
@@ -60,7 +61,7 @@ export default (state = INITIAL_STATE, action) => {
       };
     }
 
-    case Types.LIKE_POST_SUCCESS:
+    case PostsTypes.LIKE_POST_SUCCESS:
       return {
         ...state,
         items: {
@@ -71,9 +72,9 @@ export default (state = INITIAL_STATE, action) => {
           },
         },
       };
-    case Types.GET_POST_LIKE_REQUEST:
+    case PostsTypes.GET_POST_LIKE_REQUEST:
       return { ...state, postLikesLoading: true };
-    case Types.GET_POST_LIKE_SUCCESS:
+    case PostsTypes.GET_POST_LIKE_SUCCESS:
       return {
         ...state,
         items: {
@@ -85,7 +86,7 @@ export default (state = INITIAL_STATE, action) => {
         },
         postLikesLoading: false,
       };
-    case Types.VOTE_POST_POLL_SUCCESS:
+    case PostsTypes.VOTE_POST_POLL_SUCCESS:
       return {
         ...state,
         items: {
@@ -99,9 +100,11 @@ export default (state = INITIAL_STATE, action) => {
           },
         },
       };
-    case Types.POST_ERROR:
+    case PostsTypes.POST_ERROR:
       return { ...state, errorMessage: payload.errorMessage };
     default:
       return state;
   }
 };
+
+export default reducer;

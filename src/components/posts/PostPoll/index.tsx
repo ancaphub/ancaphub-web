@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { FiCheckCircle as VotedIcon } from 'react-icons/fi';
 import { FormattedMessage } from 'react-intl';
-import { votePostPollRequest } from '../../../redux/actions/posts';
+import { votePostPollRequest } from '../../../redux/ducks/posts/actions';
 import { PostPollOption, PostPollOptionProgress, PostPollWrap } from './styles';
 
 interface PostPollProps {

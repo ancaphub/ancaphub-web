@@ -48,6 +48,7 @@
     "snake-ui": "^1.0.10",
     "socket.io-client": "^2.3.0",
     "styled-components": "^5.1.0",
+    "typesafe-actions": "^5.1.0",
     "yup": "^0.28.5"
   },
   "scripts": {
@@ -68,8 +69,9 @@
     "@types/react-big-calendar": "^0.24.7",
     "@types/react-dom": "^16.9.8",
     "@types/react-file-icon": "^1.0.0",
-    "@types/react-redux": "^7.1.9",
+    "@types/react-redux": "^7.1.11",
     "@types/react-router-dom": "^5.1.6",
+    "@types/redux-saga": "^0.10.5",
     "@types/shortid": "^0.0.29",
     "@types/socket.io-client": "^1.4.34",
     "@types/styled-components": "^5.1.4",

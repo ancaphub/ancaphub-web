@@ -45,7 +45,7 @@ import 'draft-js-hashtag-plugin/lib/plugin.css';
 import '../../../assets/mentions.css';
 import '../../../assets/inline-toolbar.css';
 
-import { createPostRequest } from '../../../redux/actions/posts';
+import { createPostRequest } from '../../../redux/ducks/posts/actions';
 
 import PostFormStyle from './styles';
 

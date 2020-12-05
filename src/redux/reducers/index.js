@@ -3,7 +3,7 @@ import alerts from './alerts';
 import users from './users';
 import usersCount from './usersCount';
 import auth from './auth';
-import posts from './posts';
+import posts from '../ducks/posts';
 import profile from './profile';
 import comments from './comments';
 import library from './library';
